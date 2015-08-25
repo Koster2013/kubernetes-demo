@@ -1,52 +1,3 @@
-<!-- BEGIN MUNGE: UNVERSIONED_WARNING -->
-
-<!-- BEGIN STRIP_FOR_RELEASE -->
-
-![WARNING](http://kubernetes.io/img/warning.png)
-![WARNING](http://kubernetes.io/img/warning.png)
-![WARNING](http://kubernetes.io/img/warning.png)
-
-<h1>PLEASE NOTE: This document applies to the HEAD of the source
-tree only. If you are using a released version of Kubernetes, you almost
-certainly want the docs that go with that version.</h1>
-
-<strong>Documentation for specific releases can be found at
-[releases.k8s.io](http://releases.k8s.io).</strong>
-
-![WARNING](http://kubernetes.io/img/warning.png)
-![WARNING](http://kubernetes.io/img/warning.png)
-![WARNING](http://kubernetes.io/img/warning.png)
-
-<!-- END STRIP_FOR_RELEASE -->
-
-<!-- END MUNGE: UNVERSIONED_WARNING -->
-<!--
-Copyright 2014 Google Inc. All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
--->
-# Rolling update example
-This example demonstrates the usage of Kubernetes to perform a [rolling update](../kubectl/kubectl_rolling-update.md) on a running group of [pods](../../../docs/user-guide/pods.md). See [here](../managing-deployments.md#updating-your-application-without-a-service-outage) to understand why you need a rolling update. Also check [rolling update design document](../../design/simple-rolling-update.md) for more information. 
-
-### Step Zero: Prerequisites
-
-This example assumes that you have forked the repository and [turned up a Kubernetes cluster](../../../docs/getting-started-guides/):
-
-```bash
-$ cd kubernetes
-$ ./cluster/kube-up.sh
-```
 
 ### Step One: Turn up the UX for the demo
 
@@ -61,7 +12,7 @@ $ kubectl proxy --www=examples/update-demo/local/ &
 I0218 15:18:31.623279   67480 proxy.go:36] Starting to serve on localhost:8001
 ```
 
-Now visit the the [demo website](http://localhost:8001/static).  You won't see anything much quite yet.
+Now visit the the [demo website](http://172.17.8.101:8001/static).  You won't see anything much quite yet.
 
 ### Step Two: Run the replication controller
 Now we will turn up two replicas of an [image](../images.md).  They all serve on internal port 80.

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: update-demo-homer
+spec:
+  replicas: 2
+  selector:
+    name: update-demo
+    version: homer
+  template:
+    metadata:
+      labels:
+        name: update-demo
+        version: homer
+    spec:
+      containers:
+      - image: mkoster/homer
+        name: update-demo
+        ports:
+        - containerPort: 80
+          protocol: TCP

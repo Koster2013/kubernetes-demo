@@ -68,7 +68,7 @@ var getServer = function($scope, name) {
 };
 
 var isUpdateDemoPod = function(pod) {
-    return pod.metadata && pod.metadata.labels && pod.metadata.labels.name == "demo";
+    return pod.metadata && pod.metadata.labels && pod.metadata.labels.name == "update-demo";
 };
 
 var update = function($scope, $http) {

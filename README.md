@@ -7,8 +7,8 @@ Kubernetes repository. Otherwise you will get "404 page not found" errors as the
 [here](../../../docs/user-guide/kubectl/kubectl_proxy.md).
 
 ```
-$ kubectl proxy --www=examples/update-demo/local/ &
-+ kubectl proxy --www=examples/update-demo/local/
+$ kubectl proxy --www=kubernetes-demo/local/ &
++ kubectl proxy --www=kubernetes-demo/local/
 I0218 15:18:31.623279   67480 proxy.go:36] Starting to serve on localhost:8001
 ```
 
@@ -18,7 +18,7 @@ Now visit the the [demo website](http://172.17.8.101:8001/static).  You won't se
 Now we will turn up two replicas of an [image](../images.md).  They all serve on internal port 80.
 
 ```bash
-$ kubectl create -f docs/user-guide/update-demo/bart-rc.yaml
+$ kubectl create -f kubernetes-demo/bart-rc.yaml
 ```
 
 After pulling the image from the Docker Hub to your worker nodes (which may take a minute or so) you'll see a couple of squares in the UI detailing the pods that are running along with the image that they are serving up.  A cute little nautilus.
@@ -28,7 +28,7 @@ After pulling the image from the Docker Hub to your worker nodes (which may take
 Now we will increase the number of replicas from two to four:
 
 ```bash
-$ kubectl scale rc demo-homer --replicas=4
+$ kubectl scale rc update-demo-bart --replicas=4
 ```
 
 If you go back to the [demo website](http://localhost:8001/static/index.html) you should eventually see four boxes, one for each pod.
@@ -37,7 +37,7 @@ If you go back to the [demo website](http://localhost:8001/static/index.html) yo
 We will now update the docker image to serve a different image by doing a rolling update to a new Docker image.
 
 ```bash
-$ kubectl rolling-update demo-homer --update-period=10s -f docs/user-guide/update-demo/homer-rc.yaml
+$ kubectl rolling-update demo-bart --update-period=10s -f kubernetes-demo/homer-rc.yaml
 ```
 The rolling-update command in kubectl will do 2 things:
 

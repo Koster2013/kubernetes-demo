@@ -16,12 +16,6 @@ limitations under the License.
 
 var base = "/api/v1/";
 
-myApp.config(['$httpProvider', function($httpProvider) {
-$httpProvider.defaults.useXDomain = true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}
-]);
-
 var updateImage = function($http, server) {
   $http.get(base + "proxy/namespaces/default/pods/" + server.podName + "/data.json")
     .success(function(data) {

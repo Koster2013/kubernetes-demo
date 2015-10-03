@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: update-demo-bart
+  name: update-demo-jboss
 spec:
   selector:
     name: update-demo
-    version: bart
+    version: jboss
   template:
     metadata:
       labels:
         name: update-demo
-        version: bart
+        version: jboss
     spec:
       containers:
-      - image: mkoster/bart
+      - image: mkoster/jboss
         name: update-demo
         ports:
         - containerPort: 80

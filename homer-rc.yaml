@@ -6,15 +6,15 @@ spec:
   replicas: 2
   selector:
     name: update-demo
-    version: homer
+    version: glassfish
   template:
     metadata:
       labels:
         name: update-demo
-        version: homer
+        version: glassfish
     spec:
       containers:
-      - image: mkoster/homer
+      - image: mkoster/glassfish
         name: update-demo
         ports:
         - containerPort: 80

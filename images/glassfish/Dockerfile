@@ -13,6 +13,6 @@
 # limitations under the License.
 
 FROM kubernetes/test-webserver
-COPY html/bart.gif bart.gif
+COPY html/glassfish.png glassfish.png
 COPY html/data.json data.json
 COPY html/index.html index.html

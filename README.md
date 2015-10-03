@@ -14,25 +14,25 @@ Now visit the the [demo website](http://172.17.8.101:8001/static).  You won't se
 ### Step Two: Run the replication controller
 
 ```bash
-$ kubectl create -f kubernetes-demo/bart-rc.yaml
+$ kubectl create -f kubernetes-demo/jboss-rc.yaml
 ```
 
 ### Step Three: Try scaling the replication controller
 
 ```bash
-$ kubectl scale rc update-demo-bart --replicas=4
+$ kubectl scale rc update-demo-jboss --replicas=4
 ```
 
 ### Step Four: Update the docker image
 
 ```bash
-$ kubectl rolling-update update-demo-bart --update-period=10s -f kubernetes-demo/homer-rc.yaml
+$ kubectl rolling-update update-demo-jboss --update-period=10s -f kubernetes-demo/glassfish-rc.yaml
 ```
 
 ### Step Five: Bring down the pods
 
 ```bash
-$ kubectl stop rc update-demo-homer
+$ kubectl stop rc update-demo-glassfish
 ```
 
 ### Step Six: Cleanup
